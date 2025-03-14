@@ -9,8 +9,8 @@ function gerarNumAleat() {
 function Dado({ valor }) {
   // Mapeamento entre o número do dado e a imagem correspondente
   const dadosImagens = {
-    1: "/images/dado1.png",
-    2: "/images/dado2.png",
+    1: "/imagens/dado1.png",
+    2: "/imagens/dado2.png",
     3: "/images/dado3.png",
     4: "/images/dado4.png",
     5: "/images/dado5.png",
