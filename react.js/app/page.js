@@ -12,7 +12,7 @@ function Dado({ valor }) {
   // Mapeamento entre o número do dado e a imagem correspondente
   const dadosImagens = {
     1: "/dado1.jpg",
-    2: "/dado2.jpg",
+    2: "/dado2.png",
     3: "/dado3.jpg",
     4: "/dado4.jpg",
     5: "/dado5.jpg",
