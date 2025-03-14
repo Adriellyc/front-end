@@ -11,12 +11,12 @@ function gerarNumAleat() {
 function Dado({ valor }) {
   // Mapeamento entre o número do dado e a imagem correspondente
   const dadosImagens = {
-    1: "/images/dado1.jpg",
-    2: "/images/dado2.jpg",
-    3: "/images/dado3.jpg",
-    4: "/images/dado4.jpg",
-    5: "/images/dado5.jpg",
-    6: "/images/dado6.jpg",
+    1: "/dado1.jpg",
+    2: "/dado2.jpg",
+    3: "/dado3.jpg",
+    4: "/dado4.jpg",
+    5: "/dado5.jpg",
+    6: "/dado6.jpg",
   };
 
   return (
