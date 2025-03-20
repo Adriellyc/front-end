@@ -13,14 +13,10 @@ function Dado({ valor }) {
     6: "/dado6.png",
   };
 
-  return (
-    <div>
-      <img src={imagens[valor]} alt={`Dado mostrando ${valor}`} width={100} />
-    </div>
-  );
+  return <img src={imagens[valor]} alt={`Dado ${valor}`} width={80} />;
 }
 
-// Função para gerar o número do dado aleatoriamente
+// Função para gerar um número aleatório entre 1 e 6
 function gerarNumeroDado() {
   return Math.floor(Math.random() * 6) + 1;
 }
@@ -33,7 +29,6 @@ export default function Home() {
   const [dadoJogador2, setDadoJogador2] = useState(1);
   const [vencedor, setVencedor] = useState("");
 
-  // Função para jogar o dado e determinar o vencedor da rodada
   function jogarRodada() {
     const dado1 = gerarNumeroDado();
     const dado2 = gerarNumeroDado();
@@ -42,40 +37,47 @@ export default function Home() {
     setDadoJogador2(dado2);
 
     if (dado1 > dado2) {
-      setPontosJogador1(pontosJogador1 + 1);
+      setPontosJogador1((prev) => prev + 1);
     } else if (dado2 > dado1) {
-      setPontosJogador2(pontosJogador2 + 1);
+      setPontosJogador2((prev) => prev + 1);
     }
 
     if (rodada < 5) {
-      setRodada(rodada + 1);
+      setRodada((prev) => prev + 1);
     } else {
       if (pontosJogador1 > pontosJogador2) {
-        setVencedor("Jogador 1");
+        setVencedor("Jogador 1 venceu!");
       } else if (pontosJogador2 > pontosJogador1) {
-        setVencedor("Jogador 2");
+        setVencedor("Jogador 2 venceu!");
       } else {
-        setVencedor("Empate");
+        setVencedor("Empate!");
       }
     }
   }
 
   return (
-    <div>
-      <h1>Jogo de Dados</h1>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", height: "100vh", justifyContent: "center" }}>
+      <h1>Jogo de Dados 🎲</h1>
       <p>Rodada: {rodada}/5</p>
-      <div>
-        <h2>Jogador 1</h2>
-        <Dado valor={dadoJogador1} />
-        <p>Pontos: {pontosJogador1}</p>
+
+      <div style={{ display: "flex", gap: "50px", marginBottom: "20px" }}>
+        <div>
+          <h2>Jogador 1</h2>
+          <Dado valor={dadoJogador1} />
+          <p>Pontos: {pontosJogador1}</p>
+        </div>
+        <div>
+          <h2>Jogador 2</h2>
+          <Dado valor={dadoJogador2} />
+          <p>Pontos: {pontosJogador2}</p>
+        </div>
       </div>
-      <div>
-        <h2>Jogador 2</h2>
-        <Dado valor={dadoJogador2} />
-        <p>Pontos: {pontosJogador2}</p>
-      </div>
-      <button onClick={jogarRodada}>Jogar Rodada</button>
-      {vencedor && <h2>Vencedor: {vencedor}</h2>}
+
+      <button style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer", borderRadius: "5px", border: "none", backgroundColor: "#007bff", color: "white" }} onClick={jogarRodada}>
+        🎲 Jogar Rodada 🎲
+      </button>
+
+      {vencedor && <h2 style={{ marginTop: "20px" }}>{vencedor}</h2>}
     </div>
   );
 }
