@@ -12,36 +12,29 @@ export default function Home() {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-4xl">
-        <Link
-          href="/conversordolar"
-          className="bg-[#FFB74D] hover:bg-[#FFA726] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#FF9800]"
-        >
-          💵 Converter Moeda (USD/BRL)
+        <Link href="/conversordolar">
+          <a className="bg-[#FFB74D] hover:bg-[#FFA726] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#FF9800]">
+            💵 Converter Moeda (USD/BRL)
+          </a>
         </Link>
 
-        <Link
-          href="/conversortemperatura"
-          className="bg-[#FF7043] hover:bg-[#FF5722] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#FF5722]"
-        >
-          🌡️ Transforme Temperaturas em Segundos
+        <Link href="/conversortemperatura">
+          <a className="bg-[#FF7043] hover:bg-[#FF5722] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#FF5722]">
+            🌡️ Transforme Temperaturas em Segundos
+          </a>
         </Link>
 
-        <Link
-          href="/conversorunidade"
-          className="bg-[#81C784] hover:bg-[#66BB6A] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#66BB6A]"
-        >
-          📏 Converta Unidades e Medidas
+        <Link href="/conversorunidade">
+          <a className="bg-[#81C784] hover:bg-[#66BB6A] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#66BB6A]">
+            📏 Converta Unidades e Medidas
+          </a>
         </Link>
 
-        <Link
-          href="/sobre"
-          className="bg-[#9575CD] hover:bg-[#7E57C2] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#7E57C2]"
-        >
-          ℹ️ Saiba Mais sobre a Criadora
+        <Link href="/sobre">
+          <a className="bg-[#9575CD] hover:bg-[#7E57C2] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#7E57C2]">
+            ℹ️ Saiba Mais sobre a Criadora
+          </a>
         </Link>
-
-       <link href='/sobre'></link>
-
       </div>
     </div>
   )
