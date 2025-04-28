@@ -10,7 +10,7 @@ export default function Home() {
       </h1>
 
       <p className="text-xl text-center max-w-2xl mb-10">
-        O Conversor Universal** foi criado para facilitar o seu dia a dia. Com ele, você pode converter moedas, temperaturas, unidades de medida e muito mais de forma rápida, prática e intuitiva!
+        O Conversor Universal foi criado para facilitar o seu dia a dia. Com ele, você pode converter moedas, temperaturas, unidades de medida e muito mais de forma rápida, prática e intuitiva!
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl">
