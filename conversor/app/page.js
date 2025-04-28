@@ -21,7 +21,7 @@ export default function Home() {
         </Link>
 
         <Link
-          href="/conversortemperatura"
+          href="/coversortemperatura"
           className="bg-[#FF7043] hover:bg-[#FF5722] text-[#212121] text-center py-6 px-8 rounded-lg shadow-md font-semibold transition duration-300 ease-in-out text-lg border-2 border-[#FF5722]"
         >
           🌡️ Transforme Temperaturas em Segundos
