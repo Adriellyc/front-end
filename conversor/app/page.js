@@ -41,6 +41,9 @@ export default function Home() {
         >
           ℹ️ Saiba Mais sobre a Criadora
         </Link>
+
+       <link href='/sobre'></link>
+
       </div>
     </div>
   )
