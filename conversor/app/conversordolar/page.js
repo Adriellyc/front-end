@@ -1,23 +1,33 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function ConversorMoeda() {
-  const [dolarInput, setDolarInput] = useState('')
-  const [taxaCambio, setTaxaCambio] = useState('')
-  const [conversao, setConversao] = useState('')
+  const [valorUsd, setValorUsd] = useState('')
+  const [valorBrl, setValorBrl] = useState('')
+  const [erro, setErro] = useState('')
 
-  useEffect(() => {
-    const dolar = Number(dolarInput)
-    const taxa = Number(taxaCambio)
+  const taxaCambio = 5.65 // Valor fixo do dólar
 
-    if (!isNaN(dolar) && !isNaN(taxa)) {
-      const total = dolar * taxa
-      setConversao(total.toFixed(2))
-    } else {
-      setConversao('')
+  const converter = (valor, origem) => {
+    const numero = parseFloat(valor)
+    if (isNaN(numero) || valor === '') {
+      setErro('Por favor, insira um número válido.')
+      setValorUsd('')
+      setValorBrl('')
+      return
     }
-  }, [dolarInput, taxaCambio])
+
+    setErro('')  // Limpa o erro se o valor for válido
+
+    if (origem === 'usd') {
+      setValorUsd(valor)
+      setValorBrl((numero * taxaCambio).toFixed(2))
+    } else {
+      setValorBrl(valor)
+      setValorUsd((numero / taxaCambio).toFixed(2))
+    }
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-tr from-[#0F4C75] via-[#1A8D8E] to-[#1AAB8B] px-6 py-10">
@@ -30,22 +40,18 @@ export default function ConversorMoeda() {
           type="number"
           placeholder="Digite o valor em USD"
           className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded-md p-3 shadow focus:outline-none focus:ring-2 focus:ring-[#68D391]"
-          value={dolarInput}
-          onChange={(e) => setDolarInput(e.target.value)}
+          value={valorUsd}
+          onChange={(e) => converter(e.target.value, 'usd')}
         />
         <input
           type="number"
-          placeholder="Digite a cotação atual"
+          placeholder="Digite o valor em BRL"
           className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded-md p-3 shadow focus:outline-none focus:ring-2 focus:ring-[#68D391]"
-          value={taxaCambio}
-          onChange={(e) => setTaxaCambio(e.target.value)}
+          value={valorBrl}
+          onChange={(e) => converter(e.target.value, 'brl')}
         />
 
-        {conversao && (
-          <div className="text-center text-xl font-medium text-[#1A8D8E]">
-            Valor convertido: <span className="font-bold text-[#3B82F6]">R$ {conversao}</span>
-          </div>
-        )}
+        {erro && <p className="text-red-500 text-sm text-center">{erro}</p>}
       </div>
 
       <Link

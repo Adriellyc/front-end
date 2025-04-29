@@ -1,34 +1,31 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function TrocaTemperatura() {
-  const [entrada, setEntrada] = useState('')
-  const [formato, setFormato] = useState('C')
-  const [saida, setSaida] = useState(null)
+  const [celsius, setCelsius] = useState('')
+  const [fahrenheit, setFahrenheit] = useState('')
+  const [erro, setErro] = useState('')
 
-  useEffect(() => {
-    if (entrada !== '') {
-      realizarConversao()
-    }
-  }, [entrada, formato])
-
-  const realizarConversao = () => {
-    const valorNumerico = parseFloat(entrada)
-    if (isNaN(valorNumerico)) {
-      setSaida('Entrada inválida')
+  const converter = (valor, origem) => {
+    const numero = parseFloat(valor)
+    if (isNaN(numero) || valor === '') {
+      setErro('Por favor, insira um número válido.')
+      setCelsius('')
+      setFahrenheit('')
       return
     }
 
-    let resultado
-    if (formato === 'C') {
-      resultado = `${((valorNumerico * 9) / 5 + 32).toFixed(2)} °F`
-    } else {
-      resultado = `${(((valorNumerico - 32) * 5) / 9).toFixed(2)} °C`
-    }
+    setErro('')
 
-    setSaida(resultado)
+    if (origem === 'celsius') {
+      setCelsius(valor)
+      setFahrenheit(((numero * 9) / 5 + 32).toFixed(2))
+    } else {
+      setFahrenheit(valor)
+      setCelsius((((numero - 32) * 5) / 9).toFixed(2))
+    }
   }
 
   return (
@@ -40,24 +37,22 @@ export default function TrocaTemperatura() {
       <div className="bg-white p-7 rounded-xl shadow-md w-full max-w-md space-y-5">
         <input
           type="number"
-          placeholder={`Informe em ${formato === 'C' ? 'Celsius' : 'Fahrenheit'}`}
+          placeholder="Informe em Celsius (°C)"
           className="w-full p-3 bg-gray-100 text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition"
-          value={entrada}
-          onChange={(e) => setEntrada(e.target.value)}
+          value={celsius}
+          onChange={(e) => converter(e.target.value, 'celsius')}
+        />
+        <input
+          type="number"
+          placeholder="Informe em Fahrenheit (°F)"
+          className="w-full p-3 bg-gray-100 text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition"
+          value={fahrenheit}
+          onChange={(e) => converter(e.target.value, 'fahrenheit')}
         />
 
-        <select
-          className="w-full p-3 bg-gray-100 text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition"
-          value={formato}
-          onChange={(e) => setFormato(e.target.value)}
-        >
-          <option value="C">Celsius para Fahrenheit</option>
-          <option value="F">Fahrenheit para Celsius</option>
-        </select>
-
-        {saida && (
-          <div className="text-center text-xl font-medium text-[#FF4500]">
-            Resultado: <span className="font-bold text-[#FFA500]">{saida}</span>
+        {erro && (
+          <div className="text-center text-red-500 text-sm">
+            {erro}
           </div>
         )}
       </div>
