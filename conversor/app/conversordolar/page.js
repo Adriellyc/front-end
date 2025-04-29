@@ -29,14 +29,14 @@ export default function ConversorMoeda() {
         <input
           type="number"
           placeholder="Digite o valor em USD"
-          className="w-full border border-gray-300 rounded-md p-3 shadow focus:outline-none focus:ring-2 focus:ring-[#68D391]"
+          className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded-md p-3 shadow focus:outline-none focus:ring-2 focus:ring-[#68D391]"
           value={dolarInput}
           onChange={(e) => setDolarInput(e.target.value)}
         />
         <input
           type="number"
           placeholder="Digite a cotação atual"
-          className="w-full border border-gray-300 rounded-md p-3 shadow focus:outline-none focus:ring-2 focus:ring-[#68D391]"
+          className="w-full bg-gray-100 text-gray-800 border border-gray-300 rounded-md p-3 shadow focus:outline-none focus:ring-2 focus:ring-[#68D391]"
           value={taxaCambio}
           onChange={(e) => setTaxaCambio(e.target.value)}
         />

@@ -41,13 +41,13 @@ export default function TrocaTemperatura() {
         <input
           type="number"
           placeholder={`Informe em ${formato === 'C' ? 'Celsius' : 'Fahrenheit'}`}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition"
+          className="w-full p-3 bg-gray-100 text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition"
           value={entrada}
           onChange={(e) => setEntrada(e.target.value)}
         />
 
         <select
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition"
+          className="w-full p-3 bg-gray-100 text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF7F50] transition"
           value={formato}
           onChange={(e) => setFormato(e.target.value)}
         >
