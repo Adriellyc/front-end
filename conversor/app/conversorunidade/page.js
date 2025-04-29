@@ -56,7 +56,7 @@ export default function ConversorUnidade() {
 
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md space-y-8">
         <select
-          className="w-full p-4 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full p-4 bg-gray-100 text-gray-800 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           value={tipo}
           onChange={(e) => {
             setTipo(e.target.value)
@@ -74,7 +74,7 @@ export default function ConversorUnidade() {
           <input
             type="number"
             placeholder="Digite o valor (Unidade 1)"
-            className="w-full p-4 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-4 bg-gray-100 text-gray-800 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={valor1}
             onChange={(e) => converter(e.target.value, 'valor1')}
           />
@@ -82,7 +82,7 @@ export default function ConversorUnidade() {
           <input
             type="number"
             placeholder="Digite o valor (Unidade 2)"
-            className="w-full p-4 bg-gray-100 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-4 bg-gray-100 text-gray-800 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={valor2}
             onChange={(e) => converter(e.target.value, 'valor2')}
           />
