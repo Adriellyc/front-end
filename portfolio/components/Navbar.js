@@ -7,7 +7,7 @@ export default function Navbar() {
         <li><Link href="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</Link></li>
         <li><Link href="/Sobre" style={{ color: '#fff', textDecoration: 'none' }}>Sobre</Link></li>
         <li><Link href="/Skills" style={{ color: '#fff', textDecoration: 'none' }}>Skills</Link></li>
-        <li><Link href="/Projetos" style={{ color: '#fff', textDecoration: 'none' }}>Projetos</Link></li>
+        <li><link href="/Projetos" style={{ color: '#fff', textDecoration: 'none' }}>Projetos</Link></li>
         <li><Link href="/Contato" style={{ color: '#fff', textDecoration: 'none' }}>Contato</Link></li>
       </ul>
     </nav>
